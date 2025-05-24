@@ -13,6 +13,7 @@ import { ProjectComponent } from './project/project.component';
 })
 export class ProjectsComponent implements AfterViewInit {
   @ViewChild('heading', { read: ElementRef }) heading: ElementRef;
+  @ViewChild('plean', { read: ElementRef }) plean: ElementRef;
   @ViewChild('idealWedding', { read: ElementRef }) idealWedding: ElementRef;
   @ViewChild('fonboard', { read: ElementRef }) fonboard: ElementRef;
   @ViewChild('brandedGames', { read: ElementRef }) brandedGames: ElementRef;
@@ -26,11 +27,13 @@ export class ProjectsComponent implements AfterViewInit {
   }
 
   private registerAnimations() {
+
     this.utilityService.addFadeInAnimation(this.heading.nativeElement, -500);
-    this.utilityService.addFadeInAnimation(this.idealWedding.nativeElement, -500);
-    this.utilityService.addFadeInAnimation(this.brandedGames.nativeElement, -500);
-    this.utilityService.addFadeInAnimation(this.c2s.nativeElement, 500);
-    this.utilityService.addFadeInAnimation(this.fonboard.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.plean.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.idealWedding.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.brandedGames.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.c2s.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.fonboard.nativeElement, -500);
     this.utilityService.addFadeInAnimation(this.background.nativeElement);
   }
 }
