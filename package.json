@@ -9,7 +9,8 @@
     "build:staging": "ng build --configuration=staging",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint && npx stylelint \"**/*.scss\""
+    "lint": "ng lint && npx stylelint \"**/*.scss\"",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +55,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "patch-package": "^8.0.0",
     "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
