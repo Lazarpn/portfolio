@@ -21,17 +21,15 @@ h2 {
   width: 100%;
   margin-top: 60px;
   justify-items: center;
-  row-gap: 80px;
-  column-gap: 80px;
+  row-gap: 40px;
+  column-gap: 40px;
 
   @media #{variables.$xxl-desktop} {
-    row-gap: 60px;
-    column-gap: 60px;
+    row-gap: 40px;
   }
 
   @media #{variables.$laptop} {
     row-gap: 40px;
-    column-gap: 40px;
   }
 
   @media #{variables.$xl-desktop} {
@@ -39,8 +37,8 @@ h2 {
   }
 
   @media #{variables.$l-desktop} {
-    row-gap: 120px;
-    column-gap: 120px;
+    row-gap: 60px;
+    column-gap: 60px;
   }
 }
 
