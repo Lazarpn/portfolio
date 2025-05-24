@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import Typewriter from 'typewriter-effect/dist/core';
 
@@ -7,7 +8,7 @@ import { TagComponent } from '../shared/components/tag/tag.component';
 
 @Component({
   selector: 'pt-hero',
-  imports: [ButtonComponent, TagComponent],
+  imports: [ButtonComponent, TagComponent, TranslatePipe],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })

@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 
 import Typewriter from 'typewriter-effect/dist/core';
 
+import { UtilityService } from '../../shared/services/utility.service';
+
 @Component({
   selector: 'pt-experience-block',
   imports: [],
@@ -13,17 +15,22 @@ export class ExperienceBlockComponent implements AfterViewInit {
   @Input() description: string;
 
   @ViewChild('text', { read: ElementRef }) text: ElementRef;
+  @ViewChild('descriptionRef', { read: ElementRef }) descriptionRef: ElementRef;
 
   filled = 0;
   maxFill: number;
 
-  isIntersected = false;
   observer: IntersectionObserver | null = null;
 
-  constructor(private host: ElementRef) { }
+  constructor(private host: ElementRef, private utilityService: UtilityService) { }
 
   ngAfterViewInit(): void {
     this.setInterceptor();
+    this.registerAnimations();
+  }
+
+  private registerAnimations() {
+    this.utilityService.addFadeInAnimation(this.descriptionRef.nativeElement, 500);
   }
 
   setInterceptor() {
@@ -36,15 +43,12 @@ export class ExperienceBlockComponent implements AfterViewInit {
     const observer = new IntersectionObserver((entries, _) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.isIntersected = true;
           this.typeText();
 
           setTimeout(() => {
             observer.unobserve(this.host.nativeElement);
           }, 1000);
         }
-
-
       });
     }, options);
 

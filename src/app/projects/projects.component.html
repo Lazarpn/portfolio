@@ -1,46 +1,55 @@
-<div [class.fade-in-left]="isIntersected" class="title-wrapper">
+<div #heading class="title-wrapper">
   <pt-tag text="h2"></pt-tag>
-  <h2>Projects</h2>
+  <h2>{{'label.projects' | translate}}</h2>
   <pt-tag text="h2" [isClosing]="true"></pt-tag>
 </div>
 
 <div class="wrapper">
   <pt-project
-    heading="Idealno Venčanje"
-    description="A web planning platform for efficient wedding planning"
-    title="nana"
+    #idealWedding
+    videoUrl="/assets/images/plean.png"
+    projectUrl="https://plean.ch/"
+    [isImageOnly]="true"
+    [heading]="'label.plean' | translate"
+    [description]="'label.pleanDescription' | translate"
+    [tags]="['Angular', 'ASP.NET Core', 'MSSQL', 'EF Core']">
+  </pt-project>
+
+  <pt-project
+    #idealWedding
     videoUrl="/assets/videos/idealwedding.webm"
     projectUrl="https://idealno-vencanje-staging.netlify.app/"
-    [class.fade-in-left]="isIntersected"
+    [heading]="'label.idealWedding' | translate"
+    [description]="'label.idealWeddingDescription' | translate"
     [tags]="['Angular', 'ASP.NET Core', 'MSSQL', 'Azure']">
   </pt-project>
 
   <pt-project
-    heading="FonBoard"
-    description="A student engagement platform for seamless job application"
+    #fonboard
     videoUrl="/assets/videos/fonboard.webm"
     projectUrl="https://onboard.fon.bg.ac.rs/"
-    [class.fade-in-right]="isIntersected"
+    [heading]="'label.fonboard' | translate"
+    [description]="'label.fonboardDescription' | translate"
     [tags]="['Angular', 'Nest', 'PostgreSQL']">
   </pt-project>
 
   <pt-project
-    heading="Branded Games"
-    description="A web platform for personal game customization"
+    #brandedGames
     videoUrl="/assets/videos/brandedgames.webm"
     projectUrl="https://thebrandedgames.com/"
-    [class.fade-in-left]="isIntersected"
+    [heading]="'label.brandedGames' | translate"
+    [description]="'label.brandedGamesDescription' | translate"
     [tags]="['Angular', '.NET', 'MSSQL']">
   </pt-project>
 
   <pt-project
-    heading="Companies to Students"
-    description="A website for student organization, event - Companies to Students"
+    #c2s
     videoUrl="/assets/videos/c2s.webm"
     projectUrl="https://c2s.fonis.rs/"
-    [class.fade-in-right]="isIntersected"
+    [heading]="'label.companiesToStudents' | translate"
+    [description]="'label.companiesToStudentsDescription' | translate"
     [tags]="['Angular', '.NET', 'Azure']">
   </pt-project>
 </div>
 
-<img [class.fade-in]="isIntersected" src="/assets/images/projects-background.png" alt="Background">
+<img #background src="/assets/images/projects-background.png" alt="Background">

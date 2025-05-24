@@ -5,17 +5,17 @@
 </div>
 
 <h1>
-  <span class="phone-invisible">Hi,</span>
-  <span class="wrapper phone-invisible">I am <span #name class="writer"></span></span>
+  <span class="phone-invisible">{{'label.hi' | translate}}</span>
+  <span class="wrapper phone-invisible">{{'label.iAm' | translate}}<span #name class="writer"></span></span>
 
-  <span class="phone-visible">Hi, I am</span>
+  <span class="phone-visible">{{'label.hi' | translate}} {{'label.iAm' | translate}}</span>
   <span #nameMobile class="writer phone-visible"></span>
 
-  <span>Full stack developer</span>
+  <span>{{'label.fullStackDeveloper' | translate}}</span>
 </h1>
 
 <pt-tag text="h1" [isClosing]="true"></pt-tag>
 
-<pt-button (buttonClick)="sendEmail()">Contact Me</pt-button>
+<pt-button (buttonClick)="sendEmail()">{{'label.contactMe' | translate}}</pt-button>
 
 <img class="background" src="/assets/images/hero-background.png" alt="Background">

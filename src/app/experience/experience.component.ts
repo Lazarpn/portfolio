@@ -1,47 +1,26 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { TagComponent } from '../shared/components/tag/tag.component';
+import { UtilityService } from '../shared/services/utility.service';
 import { ExperienceBlockComponent } from './experience-block/experience-block.component';
 
 @Component({
   selector: 'pt-experience',
-  imports: [ExperienceBlockComponent, TagComponent],
+  imports: [ExperienceBlockComponent, TagComponent, TranslatePipe],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss'
 })
 export class ExperienceComponent implements AfterViewInit {
-  isIntersected = false;
-  observer: IntersectionObserver | null = null;
+  @ViewChild('heading', { read: ElementRef }) heading: ElementRef;
 
-  constructor(private host: ElementRef) { }
+  constructor(private utilityService: UtilityService) { }
 
   ngAfterViewInit(): void {
-    this.setInterceptor();
+    this.registerAnimations();
   }
 
-  setInterceptor() {
-    const options = {
-      root: null,
-      rootMargin: '-200px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries, _) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.isIntersected = true;
-
-          setTimeout(() => {
-            observer.unobserve(this.host.nativeElement);
-          }, 1000);
-        }
-
-
-      });
-    }, options);
-
-    observer.observe(this.host.nativeElement);
+  private registerAnimations() {
+    this.utilityService.addFadeInAnimation(this.heading.nativeElement, -500);
   }
-
-
 }

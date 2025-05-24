@@ -1,45 +1,36 @@
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 import { TagComponent } from '../shared/components/tag/tag.component';
+import { UtilityService } from '../shared/services/utility.service';
 import { ProjectComponent } from './project/project.component';
 
 @Component({
   selector: 'pt-projects',
-  imports: [ProjectComponent, TagComponent],
+  imports: [ProjectComponent, TagComponent, TranslatePipe],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent implements AfterViewInit {
-  isIntersected = false;
-  observer: IntersectionObserver | null = null;
+  @ViewChild('heading', { read: ElementRef }) heading: ElementRef;
+  @ViewChild('idealWedding', { read: ElementRef }) idealWedding: ElementRef;
+  @ViewChild('fonboard', { read: ElementRef }) fonboard: ElementRef;
+  @ViewChild('brandedGames', { read: ElementRef }) brandedGames: ElementRef;
+  @ViewChild('c2s', { read: ElementRef }) c2s: ElementRef;
+  @ViewChild('background', { read: ElementRef }) background: ElementRef;
 
-  constructor(private host: ElementRef) { }
+  constructor(private utilityService: UtilityService) { }
 
   ngAfterViewInit(): void {
-    this.setInterceptor();
+    this.registerAnimations();
   }
 
-  setInterceptor() {
-    const options = {
-      root: null,
-      rootMargin: '-200px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries, _) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.isIntersected = true;
-
-          setTimeout(() => {
-            observer.unobserve(this.host.nativeElement);
-          }, 1000);
-        }
-
-
-      });
-    }, options);
-
-    observer.observe(this.host.nativeElement);
+  private registerAnimations() {
+    this.utilityService.addFadeInAnimation(this.heading.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.idealWedding.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.brandedGames.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.c2s.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.fonboard.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.background.nativeElement);
   }
 }

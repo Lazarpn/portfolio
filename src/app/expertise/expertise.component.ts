@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 import { TagComponent } from '../shared/components/tag/tag.component';
 import { IconComponent } from '../shared/icon/icon.component';
+import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'pt-expertise',
@@ -10,43 +11,25 @@ import { IconComponent } from '../shared/icon/icon.component';
   styleUrl: './expertise.component.scss'
 })
 export class ExpertiseComponent implements AfterViewInit {
+  @ViewChild('heading', { read: ElementRef }) heading: ElementRef;
+  @ViewChild('skillsWrapper', { read: ElementRef }) skillsWrapper: ElementRef;
   @ViewChild('iconAngular', { read: ElementRef }) iconAngular: ElementRef;
   @ViewChild('iconLaptop', { read: ElementRef }) iconLaptop: ElementRef;
   @ViewChild('iconLaptop2', { read: ElementRef }) iconLaptop2: ElementRef;
 
-  isIntersected = false;
-
-  observer: IntersectionObserver | null = null;
   databaseColor: 'white' | 'green' = 'white';
 
-  constructor(private host: ElementRef) { }
+  constructor(private utilityService: UtilityService) { }
 
   ngAfterViewInit(): void {
-    this.setInterceptor();
     this.setAngularAnimation();
     this.setLaptopAnimation();
+    this.registerAnimations();
   }
 
-  setInterceptor() {
-    const options = {
-      root: null,
-      rootMargin: '-200px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries, _) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.isIntersected = true;
-
-          setTimeout(() => {
-            observer.unobserve(this.host.nativeElement);
-          }, 1000);
-        }
-      });
-    }, options);
-
-    observer.observe(this.host.nativeElement);
+  private registerAnimations() {
+    this.utilityService.addFadeInAnimation(this.heading.nativeElement, -500);
+    this.utilityService.addFadeInAnimation(this.skillsWrapper.nativeElement, 500);
   }
 
   private setLaptopAnimation() {

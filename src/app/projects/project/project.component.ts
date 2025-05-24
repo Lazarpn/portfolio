@@ -7,6 +7,7 @@ import { Component, HostListener, input, Input } from '@angular/core';
   styleUrl: './project.component.scss'
 })
 export class ProjectComponent {
+  @Input() isImageOnly: boolean = false;
   @Input() heading: string;
   @Input() description: string;
   @Input() videoUrl: string;

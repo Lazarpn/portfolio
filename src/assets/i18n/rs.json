@@ -1,7 +1,4 @@
 {
-  "info": {
-
-  },
   "label": {
     "transformYourBrandIntoAGameIn24Hours": "Transform your brand into a <span>game in 24 hours!</span>",
     "theFastestWayToCreatePersonalizedGames": "The fastest way to create personalized games that engage your audience and elevate your brand. Make your move and turn your vision into an interactive experience today!",
@@ -84,7 +81,7 @@
     "InvalidConfirmationCode": "Pogrešan kod za potvrdu.",
     "InvalidGoogleAccount": "Ovaj Google nalog nije validan, prvo se registrujte.",
     "ConfirmationCodeExpired": "Ovaj kod za potvrdu je istekao.",
-    "Name is required." : "Ime je obavezno."
+    "Name is required.": "Ime je obavezno."
   },
   "confirmMessages": {
 

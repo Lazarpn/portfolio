@@ -1,15 +1,14 @@
-<div class="info" [class.fade-in-left]="isIntersected">
+<div #aboutMeInfo class="info">
   <pt-tag text="h2"></pt-tag>
-  <h2>About me</h2>
+  <h2>{{'label.aboutMe' | translate}}</h2>
   <pt-tag text="h2" [isClosing]="true"></pt-tag>
 
   <div class="about-info">
-    <p>I’m a software engineering student at the Faculty of Organizational Sciences in Belgrade and currently working at Marble IT, where I'm sharpening my skills on real-world, enterprise-level projects. While I’m gaining invaluable experience in full-stack development through my day job, I’m also open to freelance opportunities that let me explore new ideas, technologies, and creative challenges. My entrepreneurial spirit keeps me curious and motivated—I’m all about building practical, user-friendly solutions (with as few bugs as possible, promise). Whether I’m writing backend logic or perfecting UI details, I bring a lot of energy, fresh ideas, and yes, probably too much coffee. I believe the best results come from great collaboration, so if you’ve got a project that needs passion, reliability, and a bit of flair—I’m in.
-    </p>
+    <p>{{'label.aboutMeDescription' | translate}}</p>
   </div>
 </div>
 
-<div class="image-wrapper" [class.fade-in-right]="isIntersected">
-  <img src="/assets/images/LazarStojanovic.jpg" alt="Me">
+<div #aboutMePhoto class="image-wrapper">
+  <img src="/assets/images/LazarStojanovic.jpeg" alt="Me">
   <pt-tag text="img src='/assets/images/me.png'"></pt-tag>
 </div>

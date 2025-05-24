@@ -1,5 +1,4 @@
 @use "../../scss/variables" as variables;
-@import "animate.css";
 
 :host {
   position: relative;
@@ -23,13 +22,16 @@ h2 {
   margin-top: 60px;
   justify-items: center;
   row-gap: 80px;
+  column-gap: 80px;
 
   @media #{variables.$xxl-desktop} {
     row-gap: 60px;
+    column-gap: 60px;
   }
 
   @media #{variables.$laptop} {
     row-gap: 40px;
+    column-gap: 40px;
   }
 
   @media #{variables.$xl-desktop} {
@@ -38,6 +40,7 @@ h2 {
 
   @media #{variables.$l-desktop} {
     row-gap: 120px;
+    column-gap: 120px;
   }
 }
 
@@ -52,10 +55,4 @@ img {
   @media #{variables.$l-desktop} {
     top: -120%;
   }
-}
-
-.fade-in {
-  opacity: 1;
-  animation: fadeIn;
-  animation-duration: 3s;
 }
