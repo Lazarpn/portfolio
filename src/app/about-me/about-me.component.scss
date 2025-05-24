@@ -28,6 +28,7 @@ h2 {
     width: 1000px;
     font-size: 20px;
     text-align: justify;
+    word-break: break-word;
 
     @media #{variables.$laptop} {
       width: 100%;
