@@ -30,7 +30,9 @@
     "letsCreateSomething": "let’s create something",
     "truly": "truly",
     "getInTouchOrShootMeAnEmail": "Get in touch or shoot me an email directly at:",
-    "youCanContactMeAt": "You can contact me at:"
+    "youCanContactMeAt": "You can contact me at:",
+    "close": "Close",
+    "readMore": "Read more"
   },
   "errors": {
     "RequestInvalid": "",

@@ -27,6 +27,7 @@ h2 {
   p {
     width: 1000px;
     font-size: 20px;
+    text-align: justify;
 
     @media #{variables.$laptop} {
       width: 100%;
@@ -65,5 +66,19 @@ img {
     width: 90%;
     height: auto;
     aspect-ratio: 1;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @media #{variables.$m-phone} {
+    display: block;
+  }
+}
+
+.desktop-only {
+  @media #{variables.$m-phone} {
+    display: none;
   }
 }

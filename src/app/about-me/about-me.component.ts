@@ -2,11 +2,12 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 import { TagComponent } from '../shared/components/tag/tag.component';
+import { ReadMoreComponent } from '../shared/read-more/read-more.component';
 import { UtilityService } from '../shared/services/utility.service';
 
 @Component({
   selector: 'pt-about-me',
-  imports: [TagComponent, TranslatePipe],
+  imports: [TagComponent, TranslatePipe, ReadMoreComponent],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })

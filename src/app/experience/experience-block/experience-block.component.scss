@@ -48,3 +48,17 @@
 .visibility-hidden {
   visibility: hidden;
 }
+
+.mobile-only {
+  display: none;
+
+  @media #{variables.$m-phone} {
+    display: block;
+  }
+}
+
+.desktop-only {
+  @media #{variables.$m-phone} {
+    display: none;
+  }
+}

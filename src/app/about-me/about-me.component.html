@@ -4,7 +4,13 @@
   <pt-tag text="h2" [isClosing]="true"></pt-tag>
 
   <div class="about-info">
-    <p>{{'label.aboutMeDescription' | translate}}</p>
+    <pt-read-more
+      class="mobile-only"
+      [maxCharacters]="300"
+      [text]="('label.aboutMeDescription' | translate)">
+    </pt-read-more>
+
+    <p class="desktop-only">{{'label.aboutMeDescription' | translate}}</p>
   </div>
 </div>
 

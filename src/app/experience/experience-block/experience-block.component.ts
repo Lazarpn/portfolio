@@ -2,11 +2,12 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 
 import Typewriter from 'typewriter-effect/dist/core';
 
+import { ReadMoreComponent } from '../../shared/read-more/read-more.component';
 import { UtilityService } from '../../shared/services/utility.service';
 
 @Component({
   selector: 'pt-experience-block',
-  imports: [],
+  imports: [ReadMoreComponent],
   templateUrl: './experience-block.component.html',
   styleUrl: './experience-block.component.scss'
 })
@@ -16,6 +17,7 @@ export class ExperienceBlockComponent implements AfterViewInit {
 
   @ViewChild('text', { read: ElementRef }) text: ElementRef;
   @ViewChild('descriptionRef', { read: ElementRef }) descriptionRef: ElementRef;
+  @ViewChild('descriptionRefMobile', { read: ElementRef }) descriptionRefMobile: ElementRef;
 
   filled = 0;
   maxFill: number;
@@ -31,6 +33,7 @@ export class ExperienceBlockComponent implements AfterViewInit {
 
   private registerAnimations() {
     this.utilityService.addFadeInAnimation(this.descriptionRef.nativeElement, 500);
+    this.utilityService.addFadeInAnimation(this.descriptionRefMobile.nativeElement, 500);
   }
 
   setInterceptor() {

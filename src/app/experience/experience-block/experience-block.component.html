@@ -7,5 +7,18 @@
 
 <div class="text">
   <h3 #text></h3>
-  <p #descriptionRef>{{description}}</p>
+
+  <pt-read-more
+    #descriptionRefMobile
+    class="mobile-only"
+    [maxCharacters]="250"
+    [text]="description">
+  </pt-read-more>
+
+  <pt-read-more
+    #descriptionRef
+    class="desktop-only"
+    [maxCharacters]="500"
+    [text]="description">
+  </pt-read-more>
 </div>

@@ -1,0 +1,17 @@
+@if (text) {
+  <p>{{isExpanded ? text : shortenedText}}</p>
+}
+
+@if (totalCharacters > maxCharacters) {
+  <button (click)="expandText()">
+    <pt-icon
+      role="button"
+      color="accent"
+      [size]="15"
+      [iconVariant]="24"
+      [iconName]="isExpanded ? 'caret_up' : 'caret_down'">
+    </pt-icon>
+
+    <span>{{(isExpanded ? 'label.close' : 'label.readMore') | translate}}</span>
+  </button>
+}
