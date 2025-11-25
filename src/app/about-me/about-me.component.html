@@ -10,7 +10,7 @@
       [text]="('label.aboutMeDescription' | translate)">
     </pt-read-more>
 
-    <p class="desktop-only">{{'label.aboutMeDescription' | translate}}</p>
+    <p class="desktop-only" [innerHTML]="'label.aboutMeDescription' | translate"></p>
   </div>
 </div>
 
